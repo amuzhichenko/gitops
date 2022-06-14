@@ -1,4 +1,4 @@
-name: Test manifests
+name: Test k8s manifests
 
 on: [push, pull_request]
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        k8s-files: ${{fromJson(needs.find-files.outputs.files)}}
+        k8s-files: ${{fromJson(needs.find-k8s-files.outputs.files)}}
       fail-fast: false
     steps:
     - uses: actions/checkout@v2 
