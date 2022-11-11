@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install nginx
-        run: sudo apt update && sudo apt install -y nginx && systemctl status nginx
+        run: sudo apt update && sudo apt install -y nginx && sudo systemctl start nginx
       - run: echo "nginx has been installed"
       - name: Curl install
         run: sudo apt install -y curl && curl --version
