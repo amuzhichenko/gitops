@@ -1,0 +1,22 @@
+name: Install nginx
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install nginx
+        run: sudo apt update && sudo apt install -y nginx
+      - run: echo "nginx has been installed"
+      - run: |
+          curl localhost > nc_rep.log 2>&1
+          ls -la
+      - name: Upload report
+        uses: actions/upload-artifact@v2
+        with:
+          path: nc_rep.log
+
