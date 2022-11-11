@@ -12,6 +12,8 @@ jobs:
       - name: Install nginx
         run: sudo apt update && sudo apt install -y nginx
       - run: echo "nginx has been installed"
+      - run: Curl install
+        run: sudo apt install -y curl && curl --version
       - run: |
           curl localhost > nc_rep.log 2>&1
           ls -la
